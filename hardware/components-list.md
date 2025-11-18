@@ -175,7 +175,3 @@ Approx size: 2–3 feet.
 
 This components list covers the entire bill of materials used to build the tarpaulin automation prototype from scratch.
 It reflects research, electrical understanding, mechanical design, and hands-on fabrication done by **Mohammed Jahangir (pingjahangir)** during the project.
-
-
-### **STEP 4 — docs/project-overview.md (professional write-up)**
-
