@@ -1,0 +1,110 @@
+#include <Servo.h>  // Include the Servo library
+ 
+// Pin definitions for NEMA 17 motors and switches
+const int switch1Pin = 22;   // Pin for switch 1 (Clockwise)
+const int switch2Pin = 23;   // Pin for switch 2 (Counterclockwise)
+ 
+const int dirPin1 = 24;      // Direction pin for Motor 1 (NEMA 17)
+const int stepPin1 = 25;     // Step pin for Motor 1 (NEMA 17)
+const int dirPin2 = 26;      // Direction pin for Motor 2 (NEMA 17)
+const int stepPin2 = 27;     // Step pin for Motor 2 (NEMA 17)
+ 
+// Servo motor setup
+Servo servo1;  // Servo motor 1
+Servo servo2;  // Servo motor 2
+ 
+const int stepsPerRevolution = 200; // 200 steps per revolution for NEMA 17 in full-step mode
+int stepInterval = 290;             // Adjusted speed for faster NEMA 17 motors
+ 
+void setup() {
+  // Set pin modes for NEMA 17 motors and switches
+  pinMode(switch1Pin, INPUT_PULLUP);  // Switch 1
+  pinMode(switch2Pin, INPUT_PULLUP);  // Switch 2
+ 
+  pinMode(dirPin1, OUTPUT);  // Motor 1 direction
+  pinMode(stepPin1, OUTPUT); // Motor 1 step
+  pinMode(dirPin2, OUTPUT);  // Motor 2 direction
+  pinMode(stepPin2, OUTPUT); // Motor 2 step
+ 
+  // Attach the servos to their respective pins
+  servo1.attach(9);  // Servo 1 on pin 9
+  servo2.attach(10); // Servo 2 on pin 10
+ 
+  // Initialize motors off
+  digitalWrite(dirPin1, LOW);
+  digitalWrite(stepPin1, LOW);
+  digitalWrite(dirPin2, LOW);
+  digitalWrite(stepPin2, LOW);
+ 
+  // Initialize Serial Monitor
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  // Read the switch states
+  int switch1State = digitalRead(switch1Pin);
+  int switch2State = digitalRead(switch2Pin);
+ 
+  // Check if both switches are pressed
+  if (switch1State == LOW && switch2State == LOW) {
+    // Error condition: both switches pressed
+    Serial.println("Error: Both switches are pressed. Motors will not move.");
+    stopAllMotors(); // Stop all motors when both switches are on
+  }
+  else if (switch1State == LOW) {
+    // Switch 1 pressed - Move motors clockwise
+    Serial.println("Switch 1 is ON: NEMA Motors clockwise, Servo 1 clockwise, Servo 2 counterclockwise.");
+   
+    // NEMA 17 motors rotate clockwise
+    moveNemaMotors(HIGH);
+   
+    // Servo 1 rotates clockwise, Servo 2 rotates counterclockwise
+    servo1.write(0);   // Servo 1 clockwise
+    servo2.write(180); // Servo 2 counterclockwise
+  }
+  else if (switch2State == LOW) {
+    // Switch 2 pressed - Move motors counterclockwise
+    Serial.println("Switch 2 is ON: NEMA Motors counterclockwise, Servo 1 counterclockwise, Servo 2 clockwise.");
+   
+    // NEMA 17 motors rotate counterclockwise
+    moveNemaMotors(LOW);
+   
+    // Servo 1 rotates counterclockwise, Servo 2 rotates clockwise
+    servo1.write(180); // Servo 1 counterclockwise
+    servo2.write(0);   // Servo 2 clockwise
+  }
+  else {
+    // No switches pressed - Motors stop
+    Serial.println("Motors stopped.");
+    stopAllMotors(); // Stop all motors when no switches are on
+  }
+}
+ 
+// Function to move NEMA 17 motors continuously
+void moveNemaMotors(int dir) {
+  // Set the direction of both NEMA 17 motors
+  digitalWrite(dirPin1, dir);
+  digitalWrite(dirPin2, dir);
+ 
+  // Move the NEMA motors continuously while switch is pressed
+  for (int i = 0; i < stepsPerRevolution; i++) {
+    // Step the motors
+    digitalWrite(stepPin1, HIGH);
+    digitalWrite(stepPin2, HIGH);
+    delayMicroseconds(stepInterval); // Adjust speed to synchronize with servos
+    digitalWrite(stepPin1, LOW);
+    digitalWrite(stepPin2, LOW);
+    delayMicroseconds(stepInterval);
+  }
+}
+ 
+// Function to stop all motors
+void stopAllMotors() {
+  // Stop NEMA 17 motors by setting step pins low
+  digitalWrite(stepPin1, LOW);
+  digitalWrite(stepPin2, LOW);
+ 
+  // Stop the servo motors by setting them to 90 (neutral position)
+  servo1.write(90);
+  servo2.write(90);
+}
