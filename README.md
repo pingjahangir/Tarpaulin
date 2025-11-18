@@ -3,7 +3,7 @@
 ### *Developed by Mohammed Jahangir (GitHub: **pingjahangir**) — Trainee Engineer, Guidsoft Technologies Pvt. Ltd.*
 
 <p align="center">
-  <img src="media/images/tarpaulin-prototype-banner.jpg" width="80%">
+  <img src="media/images/pingjahangir-tarpaulin-prototype-side.png" width="80%">
 </p>
 
 ---
@@ -40,13 +40,11 @@ an automated tarpaulin rig that **opens and closes using switches**.
 
 (From your uploaded images)
 
-![Tarpaulin Prototype Top View](media/images/tarpaulin-prototype-top1.jpg)
+![Tarpaulin Prototype Top View](media/images/pingjahangir-tarpaulin-prototype-side.png)
 
 ### **Front view**
 
-![Tarpaulin Front View](media/images/tarpaulin-prototype-front2.jpg)
-
-> I can rename and optimize these images when you upload them into the repo.
+![Tarpaulin Front View](media/images/pingjahangir-tarpaulin-prototype-top.png)
 
 ---
 
