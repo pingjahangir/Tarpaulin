@@ -42,10 +42,6 @@ an automated tarpaulin rig that **opens and closes using switches**.
 
 ![Tarpaulin Prototype Top View](media/images/pingjahangir-tarpaulin-prototype-side.png)
 
-### **Front view**
-
-![Tarpaulin Front View](media/images/pingjahangir-tarpaulin-prototype-top.png)
-
 ---
 
 ## ✨ **Key Features**
