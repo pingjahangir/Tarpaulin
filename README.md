@@ -292,6 +292,3 @@ GitHub: [@pingjahangir](https://github.com/pingjahangir)
 Trainee Engineer – Guidsoft Technologies Pvt. Ltd.
 
 
-
-Just tell me **“step 2”** or whatever you want next.
-
