@@ -1,6 +1,6 @@
-# ✅ **`docs/future-scope.md` — Future Scope & Real-World Expansion**
+# ✅ **Future Scope & Real-World Expansion**
 
-# **Future Scope – Automated Tarpaulin Protection System**
+# **Automated Tarpaulin Protection System**
 
 **By Mohammed Jahangir (GitHub: pingjahangir)**
 Trainee Engineer – Guidsoft Technologies Pvt. Ltd.
