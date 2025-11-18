@@ -178,15 +178,6 @@ The prototype can evolve into a **full-scale commercial solution**:
 
 ---
 
-## 📷 **8. Prototype Images**
-
-```markdown
-![Tarpaulin Prototype Top](/media/images/pingjahangir-tarpaulin-prototype-top.png)
-![Tarpaulin Frame Front](/media/images/pingjahangir-tarpaulin-prototype-side.png)
-```
-
----
-
 ## 👤 **9. Author**
 
 **Mohammed Jahangir**
